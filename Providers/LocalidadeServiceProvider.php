@@ -117,10 +117,10 @@ class LocalidadeServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('localidade.php'),
+            __DIR__ . '/../Config/config.php' => config_path('localidade.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'localidade'
+            __DIR__ . '/../Config/config.php', 'localidade'
         );
     }
 
@@ -133,7 +133,7 @@ class LocalidadeServiceProvider extends ServiceProvider
     {
         $viewPath = base_path('resources/views/modules/localidade');
 
-        $sourcePath = __DIR__.'/../Resources/views';
+        $sourcePath = __DIR__ . '/../Resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
@@ -156,7 +156,7 @@ class LocalidadeServiceProvider extends ServiceProvider
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, 'localidade');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'localidade');
+            $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'localidade');
         }
     }
 
