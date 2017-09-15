@@ -1,6 +1,8 @@
 {
     "name": "betagt/localidade",
     "description": "",
+	"license": "MIT",
+	"type": "module",
     "authors": [
         {
             "name": "Diuliano Oliveira",
