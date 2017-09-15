@@ -2,7 +2,7 @@
     "name": "betagt/localidade",
     "description": "",
 	"license": "MIT",
-	"type": "module",
+	"type": "laravel-module",
     "authors": [
         {
             "name": "Diuliano Oliveira",
