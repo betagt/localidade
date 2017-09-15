@@ -1,15 +1,18 @@
 {
-    "name": "nwidart/localidade",
+    "name": "betagt/localidade",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Diuliano Oliveira",
+            "email": "diuliano0@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
             "Modules\\Localidade\\": ""
         }
-    }
+    },
+	"require": {
+		"betagt/core": "1.*",
+	}
 }
