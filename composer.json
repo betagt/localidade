@@ -13,6 +13,6 @@
         }
     },
 	"require": {
-		"betagt/core": "1.*",
+		"betagt/core": "1.*"
 	}
 }
