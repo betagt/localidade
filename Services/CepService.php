@@ -3,6 +3,7 @@
 namespace Modules\Localidade\Services;
 
 
+use Modules\Localidade\Repositories\BairroRepository;
 use Modules\Localidade\Repositories\CidadeRepository;
 use Modules\Localidade\Repositories\EstadoRepository;
 use Modules\Localidade\Repositories\LocalidadeRepository;
@@ -36,10 +37,15 @@ class CepService
      * @var GeoService
      */
     private $geoService;
+    /**
+     * @var BairroRepository
+     */
+    private $bairroRepository;
 
     public function __construct(
         CidadeRepository $cidadeRepository,
         EstadoRepository $estadoRepository,
+        BairroRepository $bairroRepository,
         LocalidadeRepository $localidadeRepository,
         GeoService $geoService,
         UtilService $utilService,
@@ -52,6 +58,7 @@ class CepService
         $this->utilService = $utilService;
         $this->cacheService = $cacheService;
         $this->geoService = $geoService;
+        $this->bairroRepository = $bairroRepository;
     }
 
     public function requestCep($cep, $defaultValidate = false)
@@ -95,6 +102,10 @@ class CepService
                     'titulo'=>$json_file['localidade'],
                     'estado_id'=>$estado->id,
                     'capital'=>false,
+                ]);
+                $this->bairroRepository->create([
+                    'cidade_id' => $cidade->id,
+                    'titulo' => 'Centro',
                 ]);
             }
             $localidade = $this->localidadeRepository->create([

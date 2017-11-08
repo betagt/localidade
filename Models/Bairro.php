@@ -26,6 +26,6 @@ class Bairro extends Model implements Transformable
 {
     use TransformableTrait,SoftDeletes;
 
-    protected $fillable = [];
+    protected $fillable = ['cidade_id', 'titulo'];
     protected $dates = ['deleted_at'];
 }
