@@ -8,6 +8,7 @@
 
 namespace Modules\Localidade\Rotas;
 
+use Portal\Http\Middleware\CacheMiddleware;
 use Portal\Interfaces\ICustomRoute,
     \Route;
 
@@ -41,15 +42,15 @@ class LocalidadeRoute implements ICustomRoute
             Route::get('localidade/cidades/select-cidades/{estadoId}', [
                 'as' => 'plano.consulta_cidades',
                 'uses' => 'LocalidadeController@selectCidades'
-            ]);
+            ])->middleware(CacheMiddleware::class);
             Route::get('localidade/bairro/select-bairros/{cidadeId}', [
                 'as' => 'plano.consulta_bairros',
                 'uses' => 'LocalidadeController@selectBairros'
-            ]);
+            ])->middleware(CacheMiddleware::class);
             Route::get('localidade/estados/select-estados', [
                 'as' => 'plano.consulta_estaos',
                 'uses' => 'LocalidadeController@selectEstados'
-            ]);
+            ])->middleware(CacheMiddleware::class);
             Route::get('localidade/cep-localidade/{cep}', [
                 'as' => 'plano.consulta_estaos',
                 'uses' => 'LocalidadeController@localidadeByCep'
